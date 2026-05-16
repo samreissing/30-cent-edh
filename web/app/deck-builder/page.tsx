@@ -30,6 +30,7 @@ export default function DeckBuilderPage() {
   const [importOpen, setImportOpen] = useState(false);
   const [importText, setImportText] = useState("");
   const [importIssues, setImportIssues] = useState<{ unknown: string[]; warnings: string[] } | null>(null);
+  const [hoverCard, setHoverCard] = useState<Card | null>(null);
 
   // Initial load: cards first, then deck (preferring URL hash > localStorage > empty).
   useEffect(() => {
@@ -162,7 +163,11 @@ export default function DeckBuilderPage() {
         </div>
 
         {deck.commander ? (
-          <div className="rounded border border-emerald-400/50 bg-emerald-500/10 p-2">
+          <div
+            onMouseEnter={() => commanderCard && setHoverCard(commanderCard)}
+            onMouseLeave={() => setHoverCard(null)}
+            className="rounded border border-emerald-400/50 bg-emerald-500/10 p-2"
+          >
             <div className="text-[10px] uppercase tracking-wide text-emerald-300">Commander</div>
             <div className="flex items-center justify-between">
               <span className="font-medium">{deck.commander}</span>
@@ -192,7 +197,12 @@ export default function DeckBuilderPage() {
                 .map((s) => {
                   const c = byName.get(s.name);
                   return (
-                    <li key={s.name} className="group relative flex items-center justify-between gap-2 px-2 py-1 text-sm">
+                    <li
+                      key={s.name}
+                      onMouseEnter={() => c && setHoverCard(c)}
+                      onMouseLeave={() => setHoverCard(null)}
+                      className="flex items-center justify-between gap-2 px-2 py-1 text-sm hover:bg-white/5"
+                    >
                       <span className="truncate">
                         {s.count > 1 ? `${s.count}× ` : ""}
                         {s.name}
@@ -204,18 +214,6 @@ export default function DeckBuilderPage() {
                       >
                         ✕
                       </button>
-                      {c?.image && (
-                        // Hover preview pops out to the LEFT (toward the card grid).
-                        // Pointer-events:none keeps it from interfering with clicks.
-                        <div className="pointer-events-none absolute right-full top-1/2 z-30 mr-2 hidden -translate-y-1/2 group-hover:block">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={c.image}
-                            alt={c.name}
-                            className="w-56 rounded-lg shadow-2xl ring-1 ring-white/10"
-                          />
-                        </div>
-                      )}
                     </li>
                   );
                 })}
@@ -314,6 +312,18 @@ export default function DeckBuilderPage() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Hover preview — fixed position so it escapes the deck list's overflow:auto. */}
+      {hoverCard?.image && (
+        <div className="pointer-events-none fixed right-[388px] top-1/2 z-40 hidden -translate-y-1/2 lg:block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={hoverCard.image}
+            alt={hoverCard.name}
+            className="w-72 rounded-lg shadow-2xl ring-1 ring-white/10"
+          />
         </div>
       )}
 

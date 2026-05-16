@@ -1,13 +1,14 @@
 import type { Card, Deck } from "./types";
-import { isBasic } from "./deck";
 
 export type DeckStats = {
   total: number;
-  unique: number;
   lands: number;
   nonlandCount: number;
   avgCmcNonland: number | null;
-  curve: number[];          // index 0..6 = exact CMC; index 7 = 7+
+  // curve[i] = number of nonland cards with rounded CMC == i.
+  // Length is `max(8, maxCmcInDeck + 1)` so the X-axis always has at least
+  // 0..7 visible and grows to fit chonky decks (e.g. a 15-CMC card).
+  curve: number[];
   types: { label: string; count: number }[];
 };
 
@@ -25,15 +26,15 @@ const TYPE_BUCKETS: { label: string; predicate: (t: string) => boolean }[] = [
 export function computeStats(deck: Deck, byName: Map<string, Card>): DeckStats {
   const stats: DeckStats = {
     total: 0,
-    unique: 0,
     lands: 0,
     nonlandCount: 0,
     avgCmcNonland: null,
-    curve: [0, 0, 0, 0, 0, 0, 0, 0],
+    curve: [],  // sized after we know the max CMC in the deck
     types: TYPE_BUCKETS.map((b) => ({ label: b.label, count: 0 })),
   };
 
   let cmcSum = 0;
+  let maxCmc = 0;
   const entries: { card: Card | undefined; count: number; name: string; isCmdr: boolean }[] = [];
   for (const s of deck.ninety_nine) {
     entries.push({ card: byName.get(s.name), count: s.count, name: s.name, isCmdr: false });
@@ -47,13 +48,23 @@ export function computeStats(deck: Deck, byName: Map<string, Card>): DeckStats {
     });
   }
 
+  // First pass: discover max CMC so we can size the curve array.
+  for (const { card } of entries) {
+    if (!card) continue;
+    if (card.type_line.includes("Land")) continue;
+    const cmc = Math.round(card.cmc ?? 0);
+    if (cmc > maxCmc) maxCmc = cmc;
+  }
+  // Always show at least 0..7 on the axis; expand if deck has anything higher.
+  const curveLen = Math.max(8, maxCmc + 1);
+  stats.curve = new Array(curveLen).fill(0);
+
   for (const { card, count } of entries) {
     if (!card) {
       stats.total += count;
       continue;
     }
     stats.total += count;
-    stats.unique += isBasic(card.name) ? 1 : count;
     const t = card.type_line;
     const isLand = t.includes("Land");
 
@@ -62,8 +73,7 @@ export function computeStats(deck: Deck, byName: Map<string, Card>): DeckStats {
     } else {
       stats.nonlandCount += count;
       const cmc = Math.round(card.cmc ?? 0);
-      const bucket = Math.min(cmc, 7);
-      stats.curve[bucket] += count;
+      stats.curve[cmc] += count;
       cmcSum += (card.cmc ?? 0) * count;
     }
 
