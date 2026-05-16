@@ -1,0 +1,27 @@
+{
+  "name": "20w30c-edh-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prebuild": "node scripts/copy-data.mjs",
+    "predev": "node scripts/copy-data.mjs"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.0",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.15",
+    "typescript": "5.6.3"
+  }
+}
