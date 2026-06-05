@@ -1,11 +1,11 @@
 {
-  "total_pool": 21860,
-  "matched": 21852,
+  "total_pool": 21863,
+  "matched": 21855,
   "missing": 0,
   "missing_sample": [],
   "banned": 2,
-  "ninety_nine_eligible": 21850,
-  "commander_eligible": 1308,
+  "ninety_nine_eligible": 21853,
+  "commander_eligible": 1309,
   "word_count_histogram": {
     "7": 460,
     "26": 477,
@@ -19,7 +19,7 @@
     "9": 680,
     "1": 421,
     "39": 198,
-    "11": 732,
+    "11": 733,
     "20": 705,
     "17": 826,
     "35": 253,
@@ -55,9 +55,9 @@
     "41": 155,
     "5": 295,
     "48": 105,
-    "44": 145,
-    "45": 127,
+    "44": 146,
+    "45": 128,
     "43": 143
   },
-  "generated_at": "2026-06-04T09:46:39Z"
+  "generated_at": "2026-06-05T09:35:47Z"
 }
