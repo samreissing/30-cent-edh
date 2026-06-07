@@ -270,5 +270,13 @@
     "scryfall_link": "https://scryfall.com/card/leb/156/granite-gargoyle",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "6/6/2026",
+    "name": "Lyra Dawnbringer",
+    "checked_by": "SR",
+    "scryfall_link": "https://scryfall.com/card/fdn/738/lyra-dawnbringer",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
