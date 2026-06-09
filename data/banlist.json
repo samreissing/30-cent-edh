@@ -278,5 +278,13 @@
     "scryfall_link": "https://scryfall.com/card/fdn/738/lyra-dawnbringer",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "6/8/2026",
+    "name": "Exemplar of Light",
+    "checked_by": "SR",
+    "scryfall_link": "https://scryfall.com/card/fdn/733/exemplar-of-light",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
