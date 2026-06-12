@@ -302,5 +302,13 @@
     "scryfall_link": "https://scryfall.com/card/fdn/760/drakuseth-maw-of-flames",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "6/11/2026",
+    "name": "Thundering Raiju",
+    "checked_by": "SR",
+    "scryfall_link": "https://scryfall.com/card/pneo/166p/thundering-raiju",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
