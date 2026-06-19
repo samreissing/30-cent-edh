@@ -310,5 +310,13 @@
     "scryfall_link": "https://scryfall.com/card/pneo/166p/thundering-raiju",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "6/19/2026",
+    "name": "Park Heights Maverick",
+    "checked_by": "BUDGETBOT",
+    "scryfall_link": "https://scryfall.com/card/pncc/63p/park-heights-maverick",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
