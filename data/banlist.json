@@ -310,5 +310,13 @@
     "scryfall_link": "https://scryfall.com/card/pncc/63p/park-heights-maverick",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "6/27/2026",
+    "name": "Loyal Retainers",
+    "checked_by": "SR",
+    "scryfall_link": "https://scryfall.com/card/msc/136/loyal-retainers",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
