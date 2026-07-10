@@ -318,5 +318,13 @@
     "scryfall_link": "https://scryfall.com/card/msc/136/loyal-retainers",
     "status": "Illegal",
     "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
+  },
+  {
+    "date_checked": "7/9/2026",
+    "name": "Blinding Angel",
+    "checked_by": "SR",
+    "scryfall_link": "https://scryfall.com/card/9ed/7%E2%98%85/blinding-angel",
+    "status": "Illegal",
+    "note": "//Pricing on TCGPlayer/Scryfall is innacurate"
   }
 ]
