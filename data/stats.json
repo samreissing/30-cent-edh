@@ -1,17 +1,17 @@
 {
-  "total_pool": 22378,
-  "matched": 22374,
+  "total_pool": 22380,
+  "matched": 22376,
   "missing": 1,
   "missing_sample": [
     "________ Goblin"
   ],
   "banned": 2,
-  "ninety_nine_eligible": 22372,
-  "commander_eligible": 1486,
+  "ninety_nine_eligible": 22374,
+  "commander_eligible": 1488,
   "word_count_histogram": {
     "34": 281,
     "7": 463,
-    "26": 500,
+    "26": 501,
     "50": 767,
     "27": 494,
     "12": 834,
@@ -25,7 +25,7 @@
     "25": 514,
     "39": 201,
     "11": 741,
-    "20": 719,
+    "20": 720,
     "35": 263,
     "21": 636,
     "4": 297,
@@ -61,5 +61,5 @@
     "45": 133,
     "43": 148
   },
-  "generated_at": "2026-07-23T08:15:53Z"
+  "generated_at": "2026-07-24T08:11:56Z"
 }
