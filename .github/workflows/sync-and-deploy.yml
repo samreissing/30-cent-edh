@@ -1,9 +1,10 @@
 name: Sync data + deploy site
 
 on:
-  schedule:
-    # 06:00 UTC daily ≈ 02:00 ET. After Scryfall's nightly price refresh.
-    - cron: "0 6 * * *"
+  # Daily schedule paused 2026-09-09 — re-enable by uncommenting the block below.
+  # schedule:
+  #   # 06:00 UTC daily ≈ 02:00 ET. After Scryfall's nightly price refresh.
+  #   - cron: "0 6 * * *"
   workflow_dispatch:
   push:
     branches: [main]
